@@ -7,8 +7,8 @@ RUN conda install -y faiss-gpu scikit-learn pandas flake8 yapf isort yacs gdown 
 RUN pip install --upgrade pip && python -m pip install --upgrade setuptools && \
     pip install opencv-python tb-nightly matplotlib logger_tt tabulate tqdm wheel mccabe scipy
 
-RUN apt-get install -y software-properties-common gnupg
-
+RUN apt-get install -y software-properties-common gnupg nvidia-cuda-toolkit
+1
 RUN apt-get install -y python3-dev libpython3-dev build-essential ocl-icd-libopencl1 cmake git pkg-config  make ninja-build ocl-icd-libopencl1 ocl-icd-dev ocl-icd-opencl-dev libhwloc-dev zlib1g zlib1g-dev clinfo dialog apt-utils libxml2-dev
 
 
