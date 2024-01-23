@@ -14,6 +14,10 @@ ARG GH_PR
 ARG GH_SLUG=pocl/pocl
 ARG LLVM_VERSION=15
 LABEL git-commit=$GIT_COMMIT vendor=pocl distro=Ubuntu version=1.0
+ENV TERM=dumb
+ENV TZ=Etc/UTC
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt update
 RUN apt upgrade -y
 
