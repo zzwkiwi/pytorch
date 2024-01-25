@@ -8,7 +8,7 @@ RUN conda install -y faiss-gpu scikit-learn pandas flake8 yapf isort yacs gdown 
 RUN conda install mamba -n base -c conda-forge
  
 # 验证安装
-RUN mamba --version
+# RUN mamba --version
 
 RUN pip install --upgrade pip && python -m pip install --upgrade setuptools && \
     pip install opencv-python tb-nightly matplotlib logger_tt tabulate tqdm wheel mccabe scipy
