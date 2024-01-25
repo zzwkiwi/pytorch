@@ -31,7 +31,11 @@ RUN apt install -y wget
 # RUN sudo sh -c 'echo "deb [arch=amd64] https://repo.anaconda.com/pkgs/misc/ /" > /etc/apt/sources.list.d/conda.list'
 # RUN sudo apt-get update ; sudo apt-get install mambaforge
 
-RUN cd /home ; wget https://anaconda.org/conda-forge/mamba/1.5.6/download/linux-64/mamba-1.5.6-py310h51d5547_0.conda ; conda install mamba-1.5.6-py310h51d5547_0.conda
+# RUN cd /home ; wget https://anaconda.org/conda-forge/mamba/1.5.6/download/linux-64/mamba-1.5.6-py310h51d5547_0.conda ; conda install mamba-1.5.6-py310h51d5547_0.conda
+RUN conda update -n base conda
+RUN conda install -n base conda-libmamba-solver
+RUN conda config --set solver libmamba
+RUN conda install mamba -n base -c conda-forge
 # 验证安装
 RUN mamba --version
 
