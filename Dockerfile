@@ -26,7 +26,7 @@ RUN apt install -y build-essential ocl-icd-libopencl1 cmake git pkg-config  make
 RUN apt install -y wget
 
 # 用Mambaforge替换默认的conda
-RUN cd /home ; wget https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda-release-52.gpg
+RUN cd /home ; wget https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc
 RUN sudo apt-key add anaconda-release-52.gpg
 RUN sudo sh -c 'echo "deb [arch=amd64] https://repo.anaconda.com/pkgs/misc/ /" > /etc/apt/sources.list.d/conda.list'
 RUN sudo apt-get update ; sudo apt-get install mambaforge
