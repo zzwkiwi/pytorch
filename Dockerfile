@@ -25,4 +25,4 @@ RUN apt install -y tzdata
 RUN apt install -y build-essential ocl-icd-libopencl1 cmake git pkg-config  make ninja-build ocl-icd-libopencl1 ocl-icd-dev ocl-icd-opencl-dev libhwloc-dev zlib1g zlib1g-dev clinfo dialog apt-utils
 RUN apt install -y wget
 # install mambaforge
-RUN cd /home ; wget "https://github.com/conda-forge/miniforge/releases/download/23.11.0-0/Mambaforge-Linux-x86_64.sh"
+RUN cd /home ; wget "https://github.com/conda-forge/miniforge/releases/download/23.11.0-0/Mambaforge-Linux-x86_64.sh" ; chmod +x Mambaforge-23.11.0-0-Linux-x86_64.sh ； bash Mambaforge-23.11.0-0-Linux-x86_64.sh
