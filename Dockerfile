@@ -27,7 +27,7 @@ RUN apt install -y wget
 
 # 用Mambaforge替换默认的conda
 RUN cd /home ; wget https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc
-RUN sudo apt-key add anaconda-release-52.gpg
+RUN sudo apt-key add anaconda.asc
 RUN sudo sh -c 'echo "deb [arch=amd64] https://repo.anaconda.com/pkgs/misc/ /" > /etc/apt/sources.list.d/conda.list'
 RUN sudo apt-get update ; sudo apt-get install mambaforge
 # 验证安装
