@@ -4,6 +4,12 @@ RUN apt-get update && apt-get install -y libgl1-mesa-glx libpci-dev curl nano ps
 
 RUN conda install -y faiss-gpu scikit-learn pandas flake8 yapf isort yacs gdown future libgcc -c conda-forge
 
+# 用Mambaforge替换默认的conda
+RUN conda install mamba -n base -c conda-forge
+ 
+# 验证安装
+RUN mamba --version
+
 RUN pip install --upgrade pip && python -m pip install --upgrade setuptools && \
     pip install opencv-python tb-nightly matplotlib logger_tt tabulate tqdm wheel mccabe scipy
 
@@ -25,4 +31,4 @@ RUN apt install -y tzdata
 RUN apt install -y build-essential ocl-icd-libopencl1 cmake git pkg-config  make ninja-build ocl-icd-libopencl1 ocl-icd-dev ocl-icd-opencl-dev libhwloc-dev zlib1g zlib1g-dev clinfo dialog apt-utils
 RUN apt install -y wget
 # install mambaforge
-RUN cd /home ; wget "https://github.com/conda-forge/miniforge/releases/download/23.11.0-0/Mambaforge-Linux-x86_64.sh" ; chmod +x Mambaforge-Linux-x86_64.sh ; bash Mambaforge-Linux-x86_64.sh
+# RUN cd /home ; wget "https://github.com/conda-forge/miniforge/releases/download/23.11.0-0/Mambaforge-Linux-x86_64.sh" ; chmod +x Mambaforge-Linux-x86_64.sh ; bash Mambaforge-Linux-x86_64.sh
