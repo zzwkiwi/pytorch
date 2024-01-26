@@ -27,7 +27,7 @@ RUN apt install -y build-essential ocl-icd-libopencl1 cmake git pkg-config  make
 RUN apt install -y lsb-release wget software-properties-common gnupg
 
 RUN cd /home ; wget https://apt.llvm.org/llvm.sh ; chmod +x llvm.sh ; ./llvm.sh 15
-RUN apt install libclang-15-dev clang-15 llvm-15 libclang-cpp15-dev libclang-cpp15 llvm-15-dev
+RUN apt install -y libclang-15-dev clang-15 llvm-15 libclang-cpp15-dev libclang-cpp15 llvm-15-dev
 
 # 用Mambaforge替换默认的conda
 # RUN cd /home ; wget https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc
