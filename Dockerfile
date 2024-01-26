@@ -24,10 +24,8 @@ RUN apt upgrade -y
 RUN apt install -y tzdata
 RUN apt install -y build-essential ocl-icd-libopencl1 cmake git pkg-config  make ninja-build ocl-icd-libopencl1 ocl-icd-dev ocl-icd-opencl-dev libhwloc-dev zlib1g zlib1g-dev clinfo dialog apt-utils
 
-RUN apt install lsb-release wget 
-RUN apt install wget
-RUN apt install software-properties-common ; y 
-RUN apt install gnupg ; y 
+RUN apt install -y lsb-release wget software-properties-common gnupg
+
 RUN cd /home ; wget https://apt.llvm.org/llvm.sh ; chmod +x llvm.sh ; ./llvm.sh 15
 RUN apt install libclang-15-dev clang-15 llvm-15 libclang-cpp15-dev libclang-cpp15 llvm-15-dev
 
