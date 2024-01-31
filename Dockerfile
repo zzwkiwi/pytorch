@@ -11,6 +11,7 @@ ENV TERM=dumb
 ENV TZ=Etc/UTC
 ENV DEBIAN_FRONTEND=noninteractive
 
+RUN apt install -y lsb-release wget software-properties-common gnupg
 RUN apt update
 RUN apt upgrade -y
 
