@@ -16,7 +16,10 @@ RUN apt update
 RUN apt upgrade -y
 RUN apt install -y lsb-release wget software-properties-common gnupg
 RUN apt install -y tzdata
-RUN apt install -y build-essential ocl-icd-libopencl1 cmake git pkg-config libclang-${LLVM_VERSION}-dev clang-${LLVM_VERSION} libclang-cpp${LLVM_VERSION}-dev llvm-${LLVM_VERSION}-dev make ninja-build ocl-icd-libopencl1 ocl-icd-dev ocl-icd-opencl-dev libhwloc-dev zlib1g zlib1g-dev dialog apt-utils
+RUN apt install -y build-essential ocl-icd-libopencl1 cmake git pkg-config  make ninja-build ocl-icd-libopencl1 ocl-icd-dev ocl-icd-opencl-dev libhwloc-dev zlib1g zlib1g-dev dialog apt-utils
+
+RUN cd /home ; wget https://apt.llvm.org/llvm.sh ; chmod +x llvm.sh ; ./llvm.sh 14
+RUN apt install -y libclang-14-dev clang-14 llvm-14 libclang-cpp14-dev libclang-cpp14 llvm-14-dev
 
 RUN cd /home ; git clone https://github.com/$GH_SLUG.git ; cd /home/pocl ; git checkout $GIT_COMMIT
 RUN cd /home/pocl ; test -z "$GH_PR" || (git fetch origin +refs/pull/$GH_PR/merge && git checkout -qf FETCH_HEAD) && :
