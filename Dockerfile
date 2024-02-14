@@ -1,4 +1,4 @@
-FROM amd64/ubuntu:20.04
+# FROM amd64/ubuntu:20.04
 FROM pytorch/pytorch:1.13.1-cuda11.6-cudnn8-devel
 ARG GIT_COMMIT=main
 ARG GH_PR
