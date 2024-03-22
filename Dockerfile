@@ -28,3 +28,10 @@ RUN cd /home/pocl/b ; ninja install
 # removing this picks up PoCL from the system install, not the build dir
 RUN cd /home/pocl/b ; rm -f CTestCustom.cmake
 CMD cd /home/pocl/b ; ctest -j4 --output-on-failure -L internal
+
+RUN apt install -y wget net-tools git gfortran cmake valgrind nano libomp-dev zlib1g-dev libtiff-dev
+RUN apt install -y build-essential cmake git pkg-config libgtk-3-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libxvidcore-dev libx264-dev libjpeg-dev libpng-dev libtiff-dev gfortran openexr libatlas-base-dev python3-dev python3-numpy libtbb2 libtbb-dev libdc1394-dev libopenexr-dev libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev
+RUN cd /home ; git clone https://github.com/sowson/clBLAS clBLAS-2.12-sowson 
+RUN cd /home/clBLAS-2.12-sowson/src ; mkdir build ; cd build ; cmake .. 
+RUN cd /home/clBLAS-2.12-sowson/src/build ; make 
+RUN cd /home/clBLAS-2.12-sowson/src/build ; cp library/libclBLAS.so.2.12.0 /usr/lib/x86_64-linux-gnu/libclBLAS.so.2.12.0
