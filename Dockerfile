@@ -35,3 +35,4 @@ RUN cd /home ; git clone https://github.com/sowson/clBLAS clBLAS-2.12-sowson
 RUN cd /home/clBLAS-2.12-sowson/src ; mkdir build ; cd build ; cmake .. 
 RUN cd /home/clBLAS-2.12-sowson/src/build ; make 
 RUN cd /home/clBLAS-2.12-sowson/src/build ; cp library/libclBLAS.so.2.12.0 /usr/lib/x86_64-linux-gnu/libclBLAS.so.2.12.0
+RUN cd /home; git clone https://github.com/sowson/darknet darknet
